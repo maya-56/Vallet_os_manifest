@@ -1,0 +1,42 @@
+name: Daily Rebase
+
+on:
+  schedule:
+    - cron: "0 2 * * *"   # Daily 2 AM UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rebase:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout fork
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: my-work
+
+      - name: Configure Git
+        run: |
+          git config user.name "rebase-bot"
+          git config user.email "rebase-bot@users.noreply.github.com"
+
+      - name: Add upstream
+        run: |
+          git remote add upstream https://github.com/GrapheneOS/platform_manifest.git || true
+          git fetch upstream
+
+      - name: Rebase onto upstream 16-qpr2
+        run: |
+          git rebase upstream/16-qpr2 || {
+            echo "Rebase conflict detected"
+            git rebase --abort
+            exit 1
+          }
+
+      - name: Push rebased branch
+        run: |
+          git push origin my-work --force-with-lease
