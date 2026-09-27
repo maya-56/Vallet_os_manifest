@@ -4,6 +4,7 @@
 <manifest>
   <remote name="grapheneos" fetch="https://github.com/GrapheneOS/" revision="refs/heads/17"/>
   <remote name="grapheneos-gitlab" fetch="https://gitlab.com/grapheneos/" revision="refs/heads/17"/>
+  <remote name="maya-56" fetch="git@github.com:maya-56/" revision="refs/heads/my-work-17"/>
   <remote name="aosp" fetch="https://android.googlesource.com" review="https://android-review.googlesource.com/"/>
   <default revision="refs/tags/android-17.0.0_r1" remote="aosp" sync-j="4"/>
   <superproject name="platform/superproject" remote="aosp" revision="android-17.0.0_r1"/>
@@ -247,7 +248,7 @@
   <project path="external/hyphenation-patterns" name="platform/external/hyphenation-patterns" groups="pdk"/>
   <project path="external/iamf_tools" name="platform/external/iamf_tools" groups="pdk"/>
   <project path="external/icing" name="platform/external/icing" groups="pdk"/>
-  <project path="external/icu" name="platform_external_icu" groups="pdk" clone-depth="1" remote="grapheneos" aosp-name="platform/external/icu"/>
+  <project path="external/icu" name="platform_external_icu" groups="pdk" remote="grapheneos" aosp-name="platform/external/icu" clone-depth="1"/>
   <project path="external/igt-gpu-tools" name="platform/external/igt-gpu-tools" groups="pdk"/>
   <project path="external/image_io" name="platform/external/image_io" groups="pdk"/>
   <project path="external/ims" name="platform/external/ims" groups="pdk"/>
@@ -638,12 +639,12 @@
   <project path="external/zucchini" name="platform/external/zucchini" groups="pdk"/>
   <project path="external/zxing" name="platform/external/zxing" groups="pdk"/>
   <project path="frameworks/av" name="platform_frameworks_av" groups="pdk,sysui-studio" remote="grapheneos" aosp-name="platform/frameworks/av"/>
-  <project path="frameworks/base" name="platform_frameworks_base" groups="pdk-cw-fs,pdk-fs,sysui-studio" remote="grapheneos" aosp-name="platform/frameworks/base"/>
+  <project path="frameworks/base" name="GrapheneOS_frameworks_base" groups="pdk-cw-fs,pdk-fs,sysui-studio" remote="maya-56" aosp-name="platform/frameworks/base"/>
   <project path="frameworks/compile/libbcc" name="platform/frameworks/compile/libbcc" groups="pdk"/>
   <project path="frameworks/compile/mclinker" name="platform/frameworks/compile/mclinker" groups="pdk"/>
   <project path="frameworks/compile/slang" name="platform/frameworks/compile/slang" groups="pdk"/>
   <project path="frameworks/ex" name="platform/frameworks/ex" groups="pdk-cw-fs,pdk-fs"/>
-  <project path="frameworks/hardware/interfaces" name="platform_frameworks_hardware_interfaces" groups="pdk,sysui-studio" remote="grapheneos" aosp-name="platform/frameworks/hardware/interfaces"/>
+  <project path="frameworks/hardware/interfaces" name="platform/frameworks/hardware/interfaces" groups="pdk,sysui-studio"/>
   <project path="frameworks/layoutlib" name="platform/frameworks/layoutlib" groups="pdk-cw-fs,pdk-fs"/>
   <project path="frameworks/libs/binary_translation" name="platform/frameworks/libs/binary_translation" groups="pdk"/>
   <project path="frameworks/libs/gsma_services" name="platform/frameworks/libs/gsma_services" groups="pdk"/>
@@ -771,9 +772,9 @@
   <project path="packages/apps/SampleLocationAttribution" name="platform/packages/apps/SampleLocationAttribution" groups="pdk-fs"/>
   <project path="packages/apps/SecureElement" name="platform/packages/apps/SecureElement" groups="apps_se,pdk-fs,pdk-cw-fs"/>
   <project path="packages/apps/Seedvault" name="platform_packages_apps_Seedvault" remote="grapheneos"/>
-  <project path="packages/apps/Settings" name="platform_packages_apps_Settings" groups="pdk-fs,pdk-cw-tvc,sysui-studio" remote="grapheneos" aosp-name="platform/packages/apps/Settings"/>
+  <project path="packages/apps/Settings" name="GrapheneOS_Settings" groups="pdk-fs,pdk-cw-tvc,sysui-studio" remote="maya-56" aosp-name="platform/packages/apps/Settings"/>
   <project path="packages/apps/SettingsIntelligence" name="platform_packages_apps_SettingsIntelligence" groups="pdk-fs" remote="grapheneos" aosp-name="platform/packages/apps/SettingsIntelligence"/>
-  <project path="packages/apps/SetupWizard2" name="platform_packages_apps_SetupWizard2" remote="grapheneos"/>
+  <project path="packages/apps/SetupWizard2" name="SetupWizard2" remote="maya-56"/>
   <project path="packages/apps/SpareParts" name="platform/packages/apps/SpareParts" groups="pdk-fs"/>
   <project path="packages/apps/Stk" name="platform/packages/apps/Stk" groups="apps_stk,pdk-fs"/>
   <project path="packages/apps/StorageManager" name="platform_packages_apps_StorageManager" groups="pdk-fs" remote="grapheneos" aosp-name="platform/packages/apps/StorageManager"/>
@@ -785,7 +786,7 @@
   <project path="packages/apps/TvSettings" name="platform/packages/apps/TvSettings" groups="pdk-fs,pdk-cw-tvc"/>
   <project path="packages/apps/TvSystemUI" name="platform/packages/apps/TvSystemUI" groups="pdk-fs"/>
   <project path="packages/apps/UniversalMediaPlayer" name="platform/packages/apps/UniversalMediaPlayer"/>
-  <project path="packages/apps/Updater" name="platform_packages_apps_Updater" remote="grapheneos"/>
+  <project path="packages/apps/Updater" name="Updater" remote="maya-56"/>
   <project path="packages/apps/VirtualGamepad" name="platform/packages/apps/VirtualGamepad" groups="pdk-fs"/>
   <project path="packages/apps/WallpaperPicker2" name="platform_packages_apps_WallpaperPicker2" groups="pdk-fs,sysui-studio" remote="grapheneos" aosp-name="platform/packages/apps/WallpaperPicker2"/>
   <project path="packages/inputmethods/LatinIME" name="platform_packages_inputmethods_LatinIME" groups="pdk-fs" remote="grapheneos" aosp-name="platform/packages/inputmethods/LatinIME"/>
@@ -862,7 +863,7 @@
   <project path="packages/services/Mtp" name="platform/packages/services/Mtp" groups="pdk-cw-fs,pdk-fs"/>
   <project path="packages/services/QualifiedNetworksService" name="platform/packages/services/QualifiedNetworksService" groups="pdk-cw-fs,pdk-fs"/>
   <project path="packages/services/Telecomm" name="platform_packages_services_Telecomm" groups="pdk-cw-fs,pdk-fs" remote="grapheneos" aosp-name="platform/packages/services/Telecomm"/>
-  <project path="packages/services/Telephony" name="platform_packages_services_Telephony" groups="pdk-cw-fs,pdk-fs" remote="grapheneos" aosp-name="platform/packages/services/Telephony"/>
+  <project path="packages/services/Telephony" name="Telephony" groups="pdk-cw-fs,pdk-fs" remote="maya-56" aosp-name="platform/packages/services/Telephony"/>
   <project path="packages/wallpapers/LivePicker" name="platform/packages/wallpapers/LivePicker" groups="pdk-fs"/>
   <project path="pdk" name="platform/pdk" groups="pdk"/>
   <project path="platform_testing" name="platform/platform_testing" groups="pdk-fs,pdk-cw-fs,cts,sysui-studio"/>
